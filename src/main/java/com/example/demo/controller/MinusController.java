@@ -15,7 +15,7 @@ import com.example.demo.service.MinusService;
 public class MinusController {
 
     @Autowired
-    private MinusService MinusService; // CalculationServiceを注入します。
+    private MinusService minusService; // CalculationServiceを注入します。
     
     @GetMapping("minus")
     public String index() {
@@ -24,7 +24,7 @@ public class MinusController {
     
     @PostMapping("minuscalculate")
     public String calculate(@RequestParam("number") int number, Model model) {
-        int result = MinusService.calculate(number); // CalculationServiceのメソッドを呼び出します。
+        int result = minusService.minus(number); // CalculationServiceのメソッドを呼び出します。
         model.addAttribute("result", result);
         return "index";
     }
