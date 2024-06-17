@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.service.calculatorService;
+import com.example.demo.service.CalculatorService;
 
 @SpringBootApplication
 @Controller
-public class calculatorController {
+public class CalculatorController {
 
     @Autowired
-    private calculatorService calculatorService;
+    private CalculatorService calculatorService;
 
     public static void main(String[] args) {
-        SpringApplication.run(calculatorController.class, args);
+        SpringApplication.run(CalculatorController.class, args);
     }
 
     @GetMapping("calculator")
@@ -27,7 +27,7 @@ public class calculatorController {
         return "calculator";
     }
 
-    @PostMapping("calculate")
+    @PostMapping("calculator")
     public String calculate(@RequestParam int number1, @RequestParam int number2, @RequestParam String operator, Model model) {
         try {
             int result = calculatorService.calculate(number1, number2, operator);
@@ -35,6 +35,6 @@ public class calculatorController {
         } catch (IllegalArgumentException | ArithmeticException e) {
             model.addAttribute("error", e.getMessage());
         }
-        return "calculator";
+        return "calculator.html";
     }
 }

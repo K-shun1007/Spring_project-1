@@ -3,7 +3,7 @@ package com.example.demo.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class calculatorService {
+public class CalculatorService {
     public int calculate(int number1, int number2, String operator) throws IllegalArgumentException, ArithmeticException {
         switch (operator) {
             case "+":

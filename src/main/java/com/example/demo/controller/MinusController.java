@@ -19,13 +19,13 @@ public class MinusController {
     
     @GetMapping("minus")
     public String index() {
-        return "index";
+        return "minus.html";
     }
     
-    @PostMapping("minuscalculate")
-    public String calculate(@RequestParam("number") int number, Model model) {
-        int result = minusService.minus(number); // CalculationServiceのメソッドを呼び出します。
+    @PostMapping("minus")
+    public String calculate(@RequestParam("num1") int num1,@RequestParam("num2") int num2, Model model) {
+        int result = minusService.minus(num1, num2); // CalculationServiceのメソッドを呼び出します。
         model.addAttribute("result", result);
-        return "index";
+        return "minus";
     }
 }
