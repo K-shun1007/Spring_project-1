@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>動物検索画面</title>
@@ -8,7 +8,9 @@
     <h1>動物検索画面</h1>
     <form action="animals" method="get">
         <label for="name">動物名:</label>
-        <input type="text" id="name" name="name">
+        <select name="animalId">
+			<option th:each="animal : ${animalsList}" th:text="${animal.japaneseName}" th:value="${animal.id}"></option>
+        </select>
         <button type="submit">検索</button>
     </form>
 </body>

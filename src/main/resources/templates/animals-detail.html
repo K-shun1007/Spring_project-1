@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>動物詳細画面</title>
 </head>
 <body>
     <h1>動物詳細画面</h1>
-    <p>No: {{animal.id}}</p>
-    <p>英名: {{animal.name}}</p>
-    <p>和名: {{animal.japaneseName}}</p>
-    <p>鳴き声: {{animal.sound}}</p>
-    <a href="/animalSearch">トップへ</a>
+		<p th:text="No： + ${animal.id}"></p>
+		<p th:text="英名： + ${animal.name}"></p>
+		<p th:text="和名： + ${animal.japaneseName}"></p>
+		<p th:text="鳴き声： + ${animal.cry}"></p>
+		<a href="AnimalsAPI">トップへ</a>
 </body>
 </html>

@@ -26,4 +26,20 @@ public class AnimalsAPIRepository {
 
 		return animalsList;
 	}
+	
+	public AnimalsAPIData getAnimalDetail(int animalId)  throws IOException {
+		String url = "https://wsaz0e6z45.execute-api.ap-northeast-1.amazonaws.com/prod/animalsAPI?id=" + animalId;
+
+		RestTemplate rest = new RestTemplate();
+
+		ResponseEntity<String> response = rest.getForEntity(url, String.class);
+
+		String json = response.getBody();
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		AnimalsAPIData[] animalsList = mapper.readValue(json, AnimalsAPIData[].class);
+
+		return animalsList[0];
+	}
 }
